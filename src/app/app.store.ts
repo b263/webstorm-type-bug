@@ -1,4 +1,4 @@
-import {signalStore, withState} from '@ngrx/signals';
+import {signalStore, withMethods, withState} from '@ngrx/signals';
 
 export type Item = {
   id: string;
@@ -13,6 +13,9 @@ const initialState: AppState = {
 };
 
 export const AppStore = signalStore(
-  { providedIn: 'root' },
+  {providedIn: 'root'},
   withState(initialState),
+  withMethods(() => ({
+    test() {}
+  })),
 );
